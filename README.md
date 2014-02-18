@@ -1,19 +1,24 @@
 # Configure go app
 
-Считываем файлы из заданной директории.
-* основной файл `./settings.yml`
-* С учётом заданного  значения env выбирается `./settings/{{env_name}}.yml`
-* Локальные настройки `./settings.local.yml`
-
-type Settings struct {
-  Advert int `yaml:"advert"`
-}
-var settings Settings
-
-gosya.Merge(&settings, "paht/to/conf/dir","development")
-
-settings.Advert
+The library allows you to organize access to configuration data in yaml format, taking into account the environment.
 
 ## Install
 
     go get github.com/roomink/gosya
+
+## Usage
+
+In the folder example complete example of use.
+
+`Merge` function takes several arguments: 
+* `settings` A pointer to a structure that will project data from yaml. 
+* `path` Path where the configuration files. 
+* `env` Environment, for which the configuration is formed.
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
