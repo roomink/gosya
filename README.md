@@ -10,6 +10,13 @@ The library allows you to organize access to configuration data in yaml format, 
 
 In the folder example complete example of use.
 
+```go
+import "github.com/roomink/gosya"
+
+settings := &Settings{}
+err := gosya.Merge(settings, path, env)
+```
+
 `Merge` function takes several arguments: 
 * `settings` A pointer to a structure that will project data from yaml. 
 * `path` Path where the configuration files. 
