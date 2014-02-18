@@ -16,6 +16,14 @@ import "github.com/roomink/gosya"
 settings := &Settings{}
 err := gosya.Merge(settings, path, env)
 ```
+Organize files in the config directory
+
+    path_to_config
+    ├── settings
+    │   └── development.yml
+    ├── settings.local.yml
+    └── settings.yml
+
 
 `Merge` function takes several arguments: 
 * `settings` A pointer to a structure that will project data from yaml. 
