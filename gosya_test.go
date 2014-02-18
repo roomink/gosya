@@ -6,12 +6,14 @@ import (
 	"testing"
 )
 
+// Make temporary folder and files for configs
+// /path/to/conf/
+// /path/to/conf/settings.yml
+// /path/to/conf/settings.local.yml
+// /path/to/conf/settings/development.yml
+// Merge yaml's into var
 func TestMerge(t *testing.T) {
-	// Make temporary folder and files for configs
-	// /path/to/conf/
-	// /path/to/conf/settings.yml
-	// /path/to/conf/settings.local.yml
-	// /path/to/conf/settings/development.yml
+
 	dir_conf, err := ioutil.TempDir("", "conf")
 	if err != nil {
 		t.Errorf(`ioutil.TempDir("", "conf"): %v`, err)
@@ -21,7 +23,6 @@ func TestMerge(t *testing.T) {
 	if err != nil {
 		t.Fatalf("os.Mkdir(dir_settings, 0777): %q %v", dir_settings, err)
 	}
-	// t.Logf("list dirs\ndir_conf: %q\ndir_settings: %q", dir_conf, dir_settings)
 	files_settings := []struct {
 		name string
 		body string
@@ -51,7 +52,7 @@ func TestMerge(t *testing.T) {
 	if s.Foo != "local value" {
 		t.Errorf("Error merging: expect %q, got: %q", "local value", s.Foo)
 	}
-	// t.Logf("%#v", s)
+	// t.Logf("%#v", s.DB)
 
 	err = os.RemoveAll(dir_conf)
 	if err != nil {

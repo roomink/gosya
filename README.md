@@ -13,3 +13,7 @@ var settings Settings
 gosya.Merge(&settings, "paht/to/conf/dir","development")
 
 settings.Advert
+
+## Install
+
+    go get github.com/roomink/gosya
