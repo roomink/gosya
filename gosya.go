@@ -7,7 +7,12 @@ import (
 )
 
 func Merge(settings interface{}, path string, env string) (err error) {
-	list_files := []string{"settings.yml", "settings/" + env + ".yml", "settings.local.yml"}
+	list_files := []string{
+		"settings.yml",
+		"settings/" + env + ".yml",
+		"settings.local.yml",
+		"settings/" + env + ".local.yml",
+	}
 
 	for _, file := range list_files {
 		filename := path + "/" + file

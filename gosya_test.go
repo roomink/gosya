@@ -30,6 +30,7 @@ func TestMerge(t *testing.T) {
 		{"settings.yml", "foo: global value"},
 		{"settings/development.yml", "foo: development value"},
 		{"settings.local.yml", "foo: local value"},
+		{"settings/development.local.yml", "foo: development local value"},
 	}
 	for _, file := range files_settings {
 		fname := dir_conf + "/" + file.name
@@ -49,7 +50,7 @@ func TestMerge(t *testing.T) {
 	if err != nil {
 		t.Errorf(`Merge(s, dir_conf, "development"): %v`, err)
 	}
-	if s.Foo != "local value" {
+	if s.Foo != "development local value" {
 		t.Errorf("Error merging: expect %q, got: %q", "local value", s.Foo)
 	}
 	// t.Logf("%#v", s.DB)
